@@ -1,65 +1,44 @@
 openapi: "3.0.3"
 info:
-  title: "paw_arbeidssokerregisteret API"
-  description: "paw_arbeidssokerregisteret API"
+  title: "paw_arbeidssokerregisteret_api API"
+  description: "paw_arbeidssokerregisteret_api API"
   version: "1.0.0"
 servers:
-- url: "https://paw_arbeidssokerregisteret"
+- url: "https://paw_arbeidssokerregisteret_api"
 paths:
-  /api/v1/arbeidssoker/kan-registreres:
-    get:
-      description: ""
-      responses:
-        "200":
-          description: "OK"
-          content:
-            '*/*':
-              schema:
-                type: "boolean"
   /api/v1/arbeidssoker/perioder:
     post:
       description: ""
-      responses:
-        "202":
-          description: "Accepted"
-          content:
-            '*/*':
-              schema:
-                type: "object"
-    put:
-      description: ""
-      responses:
-        "202":
-          description: "Accepted"
-          content:
-            '*/*':
-              schema:
-                type: "object"
-  /api/v1/veileder/arbeidssoker/perioder:
-    post:
-      description: ""
+      parameters:
+      - name: "fraOgMed"
+        in: "query"
+        required: false
+        schema:
+          type: "string"
       requestBody:
         content:
           '*/*':
             schema:
-              $ref: "#/components/schemas/VeilederRequest"
+              $ref: "#/components/schemas/EksternRequest"
         required: true
       responses:
-        "403":
-          description: "Forbidden"
+        "400":
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 type: "string"
               examples:
                 Example#1:
-                  value: "NAV-ansatt har ikke tilgang"
-        "202":
-          description: "Accepted"
+                  value: "Parameter fraOgMed være satt med dd-mm-yyyy"
+        "200":
+          description: "OK"
           content:
             '*/*':
               schema:
-                type: "object"
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Arbeidssokerperiode"
   /internal/isAlive:
     get:
       description: ""
@@ -98,8 +77,17 @@ paths:
                 type: "string"
 components:
   schemas:
-    VeilederRequest:
+    EksternRequest:
       type: "object"
       properties:
         foedselsnummer:
           type: "string"
+    Arbeidssokerperiode:
+      type: "object"
+      properties:
+        fraOgMed:
+          type: "string"
+          format: "date-time"
+        tilOgMed:
+          type: "string"
+          format: "date-time"
