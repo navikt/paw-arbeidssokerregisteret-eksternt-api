@@ -1,0 +1,7 @@
+authProviders:
+  maskinporten:
+    name: maskinporten
+    discoveryUrl: http://localhost:8081/default/.well-known/openid-configuration
+    tokenEndpointUrl: http://localhost:8081/default/token
+    clientId: paw-arbeidssokerregisteret-api
+    claims: scope=nav:arbeid:arbeidssokerregisteret.read
