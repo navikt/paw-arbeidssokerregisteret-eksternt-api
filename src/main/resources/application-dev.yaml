@@ -1,0 +1,7 @@
+authProviders:
+  maskinporten:
+    name: maskinporten
+    discoveryUrl: ${MASKINPORTEN_WELL_KNOWN_URL}
+    tokenEndpointUrl: ${MASKINPORTEN_TOKEN_ENDPOINT}
+    clientId: ${MASKINPORTEN_CLIENT_ID}
+    claims: scope=nav:arbeid:arbeidssokerregisteret.read

@@ -26,7 +26,7 @@ jobs:
         env:
           ORG_GRADLE_PROJECT_githubPassword: ${{ secrets.GITHUB_TOKEN }}
         with:
-          arguments: build test
+          arguments: build buildFatJar test
       - name: Push docker image to GAR
         uses: nais/docker-build-push@v0
         id: docker-build-push
