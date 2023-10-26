@@ -1,6 +1,6 @@
-# paw-arbeidssokerregisteret-api
+# paw-arbeidssokerregisteret-eksternt-api
 
-Henter arbeidssøkerperioder fra arbeidssøkerregistreret
+Eksternt API for å levere arbeidssøkerperioder fra arbeidssøkerregistreret
 
 ## Flydiagram
 
