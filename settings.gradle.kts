@@ -1,4 +1,4 @@
-rootProject.name = "paw-arbeidssokerregisteret-api"
+rootProject.name = "paw-arbeidssokerregisteret-eksternt-api"
 
 dependencyResolutionManagement {
     val githubPassword: String by settings
