@@ -23,6 +23,8 @@ spec:
           consumers:
             - name: NAV
               orgno: "889640782"
+            - name: Statens lånekassen for utdanning
+              orgno: "960885406"
   env:
     - name: OTEL_METRICS_EXPORTER
       value: "none"
